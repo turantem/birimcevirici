@@ -41,7 +41,7 @@ class bilgiPage(QDialog):
         self.bilgiform.pushButton_tbmyo.clicked.connect(self.linkTBMYO)
         self.bilgiform.pushButton_menuyedon_bilgi.clicked.connect(self.menuyeDon)
         self.bilgiform.pushButton_iuc.setToolTip("'iuc.edu.tr' sitesi açılacaktır.")
-        self.bilgiform.pushButton_github.setToolTip("'github.com/CasuaLord/birimcevirici' sitesi açılacaktır.")
+        self.bilgiform.pushButton_github.setToolTip("'github.com/turantem/birimcevirici' sitesi açılacaktır.")
         self.bilgiform.pushButton_tbmyo.setToolTip("'elektronikteknikbilimlermyo.iuc.edu.tr' sitesi açılacaktır")
 
     def linkIUC(self):
@@ -49,7 +49,7 @@ class bilgiPage(QDialog):
         QtGui.QDesktopServices.openUrl(QtCore.QUrl(url))
 
     def linkGIT(self):
-        url = 'https://github.com/CasuaLord/birimcevirici'
+        url = 'https://github.com/turantem/birimcevirici'
         QtGui.QDesktopServices.openUrl(QtCore.QUrl(url))
 
     def linkTBMYO(self):
