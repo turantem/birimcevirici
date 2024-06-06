@@ -152,6 +152,12 @@ class uzunlukPage(QDialog):
             QMessageBox.warning(self, "Uyarı", "Lütfen bir miktar girin!")
             return
 
+        try:
+            miktar = float(giris_text)
+        except ValueError:
+            QMessageBox.warning(self, "Uyarı", "Lütfen geçerli bir numara girin!")
+            return
+
         miktar = float(giris_text)
 
         birimler = {
@@ -199,6 +205,12 @@ class kutlePage(QDialog):
         # Kullanıcının giriş yapmadan hesaplama yapmaya çalışmasını kontrol et
         if not giris_text:
             QMessageBox.warning(self, "Uyarı", "Lütfen bir miktar girin!")
+            return
+
+        try:
+            miktar = float(giris_text)
+        except ValueError:
+            QMessageBox.warning(self, "Uyarı", "Lütfen geçerli bir numara girin!")
             return
 
         miktar = float(giris_text)
@@ -269,6 +281,12 @@ class direncPage(QDialog):
         # Kullanıcının giriş yapmadan hesaplama yapmaya çalışmasını kontrol et
         if not giris_text:
             QMessageBox.warning(self, "Uyarı", "Lütfen bir miktar girin!")
+            return
+
+        try:
+            miktar = float(giris_text)
+        except ValueError:
+            QMessageBox.warning(self, "Uyarı", "Lütfen geçerli bir numara girin!")
             return
 
         miktar = float(giris_text)
@@ -415,6 +433,12 @@ class kondansatorPage(QDialog):
             QMessageBox.warning(self, "Uyarı", "Lütfen bir miktar girin!")
             return
 
+        try:
+            miktar = float(giris_text)
+        except ValueError:
+            QMessageBox.warning(self, "Uyarı", "Lütfen geçerli bir numara girin!")
+            return
+
         miktar = float(giris_text)
 
         birimler = {
@@ -463,6 +487,12 @@ class bobinPage(QDialog):
         # Kullanıcının giriş yapmadan hesaplama yapmaya çalışmasını kontrol et
         if not giris_text:
             QMessageBox.warning(self, "Uyarı", "Lütfen bir miktar girin!")
+            return
+
+        try:
+            miktar = float(giris_text)
+        except ValueError:
+            QMessageBox.warning(self, "Uyarı", "Lütfen geçerli bir numara girin!")
             return
 
         miktar = float(giris_text)
@@ -518,10 +548,15 @@ class frekansPage(QDialog):
             QMessageBox.warning(self, "Uyarı", "Lütfen bir miktar girin!")
             return
 
-        miktar = float(giris_text)
+        try:
+            miktar = float(giris_text)
+        except ValueError:
+            QMessageBox.warning(self, "Uyarı", "Lütfen geçerli bir numara girin!")
+            return
 
         if miktar <= 0:
-            raise ValueError("Frekans pozitif bir sayı olmalıdır.")
+            QMessageBox.warning(self, "Uyarı", "Frekans pozitif bir sayı olmalıdır.")
+            return
 
         # Dönüşüm faktörlerini tanımla
         frekans_birimleri = {
@@ -553,9 +588,6 @@ class frekansPage(QDialog):
                 self.frekansform.lineEdit_cikis_frekans.setText("{:.8f}".format(sonuc))
             else:
                 self.frekansform.lineEdit_cikis_frekans.setText(str(int(sonuc)))
-
-        except ValueError:
-            self.frekansform.lineEdit_cikis_frekans.setText("Geçersiz değer!")
 
         except ZeroDivisionError:
             self.frekansform.lineEdit_cikis_frekans.setText("Bölme sıfıra bölünemez!")
